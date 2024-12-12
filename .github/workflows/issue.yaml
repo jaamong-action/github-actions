@@ -2,7 +2,7 @@ name: issue-workflow
 on:
   issues:
     # issue가 open 될 때 트리거가 되서 github action 실행
-    types: [opend]
+    types: [opened]
 
 jobs:
   issue-job:
