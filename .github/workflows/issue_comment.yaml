@@ -1,0 +1,19 @@
+name: issue-comment-workflow
+on: issue_comment
+
+jobs:
+  pr-comment:
+    # job이 실행되기 전에 조건을 걸 수 있음: pr에 comment를 다는 경우 트리거됨
+    if: ${{ github.event.issue.pull_request }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: pr comment
+        run: echo ${{ github.event.issue.pull_request }}
+
+  issue-comment:
+    # issue에 comment를 다는 경우 트리거됨
+    if: ${{ !github.event.issue.pull_request}}
+    runs-on: ubuntu-latest
+    steps:
+      - name: issue comment
+        run: echo ${{ github.event.issue.pull_request}}
