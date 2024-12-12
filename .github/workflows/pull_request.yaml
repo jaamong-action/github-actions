@@ -1,5 +1,9 @@
 name: pull-request-workflow
-on: pull_request
+on: 
+  pull_request
+    # pull request가 생성된 시점에만 github action 동작. 
+    # 따로 type을 지정하지 않으면 default 값으로 동작하게 된다: opend, synchronized, reopend
+    types: [opened] 
 
 jobs:
   pull-request-job:
